@@ -1,13 +1,19 @@
-
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowDown, ArrowRight, Mountain, Anchor, Users, Code, Briefcase, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowDown, ArrowRight, Mountain, Anchor, Users, Code, Briefcase, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import { ProjectModal } from '@/components/ProjectModal';
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const scrollToExperience = () => {
+    const experienceSection = document.getElementById('experience');
+    if (experienceSection) {
+      experienceSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const experiences = [
     {
@@ -164,8 +170,8 @@ const Index = () => {
           <div className="absolute -top-24 -left-24 w-48 h-48 bg-stone-300 rounded-full opacity-15 animate-pulse" style={{ animationDelay: '0s' }} />
           <div className="absolute -top-12 -right-12 w-24 h-24 bg-stone-400 rounded-full opacity-25 animate-pulse" style={{ animationDelay: '2s' }} />
           
-          <div className="animate-fade-in-up space-y-8">
-            <h1 className="text-7xl md:text-9xl font-display font-bold text-stone-800 leading-tight relative">
+          <div className="animate-fade-in-up space-y-12">
+            <h1 className="text-7xl md:text-9xl font-display font-bold text-stone-800 leading-tight relative mb-8">
               <span className="block">Scaling New</span>
               <span className="block text-transparent bg-gradient-to-r from-sunset-500 via-carabiner-600 to-forest-600 bg-clip-text animate-pulse">
                 Heights
@@ -174,11 +180,41 @@ const Index = () => {
               <div className="absolute -inset-6 bg-white/10 rounded-full blur-3xl animate-pulse opacity-50" />
             </h1>
             
-            <p className="text-xl md:text-3xl text-stone-600 max-w-4xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl md:text-3xl text-stone-600 max-w-4xl mx-auto leading-relaxed font-medium mb-12">
               Computer Science Student & Software Engineer crafting digital experiences 
               that reach new summits of innovation and impact.
             </p>
             
+            {/* New Navigation Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-8 py-4 text-lg"
+                onClick={() => window.open('https://linkedin.com', '_blank')}
+              >
+                <Linkedin className="mr-3 h-6 w-6" />
+                LinkedIn
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-stone-800 to-stone-900 hover:from-stone-900 hover:to-black text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-8 py-4 text-lg"
+                onClick={() => window.open('https://github.com', '_blank')}
+              >
+                <Github className="mr-3 h-6 w-6" />
+                GitHub
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-stone-300 text-stone-700 hover:bg-stone-100 shadow-xl transform hover:scale-105 transition-all duration-300 px-8 py-4 text-lg"
+                onClick={scrollToExperience}
+              >
+                <ArrowDown className="mr-3 h-6 w-6" />
+                View Experience
+              </Button>
+            </div>
+
+            {/* Original Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
               <Button size="lg" className="bg-gradient-to-r from-forest-600 to-forest-700 hover:from-forest-700 hover:to-forest-800 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-8 py-4 text-lg">
                 <Briefcase className="mr-3 h-6 w-6" />
