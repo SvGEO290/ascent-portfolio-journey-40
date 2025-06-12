@@ -4,18 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowDown, ArrowRight, Mountain, Anchor, Users, Code, Briefcase, Mail, Phone, MapPin } from 'lucide-react';
-import { ClimbingCharacter } from '@/components/ClimbingCharacter';
 import { ProjectModal } from '@/components/ProjectModal';
 
 const Index = () => {
-  const [scrollY, setScrollY] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const experiences = [
     {
@@ -79,16 +71,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 overflow-x-hidden relative scroll-smooth">
-      {/* Climbing Character */}
-      <ClimbingCharacter scrollY={scrollY} />
-
       {/* Mountain Silhouettes Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         {/* Far Mountains */}
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            transform: `translateY(${scrollY * 0.2}px)`,
             background: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,600 L0,300 L200,200 L400,250 L600,150 L800,200 L1000,100 L1200,150 L1200,600 Z' fill='%23a8a29e' opacity='0.4'/%3E%3C/svg%3E")`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -99,7 +87,6 @@ const Index = () => {
         <div 
           className="absolute inset-0 opacity-30"
           style={{
-            transform: `translateY(${scrollY * 0.4}px)`,
             background: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,600 L0,400 L150,300 L350,350 L550,250 L750,300 L950,200 L1200,250 L1200,600 Z' fill='%2378716c' opacity='0.5'/%3E%3C/svg%3E")`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -110,7 +97,6 @@ const Index = () => {
         <div 
           className="absolute inset-0 opacity-40"
           style={{
-            transform: `translateY(${scrollY * 0.6}px)`,
             background: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,600 L0,500 L100,400 L300,450 L500,350 L700,400 L900,300 L1200,350 L1200,600 Z' fill='%2357534e' opacity='0.6'/%3E%3C/svg%3E")`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -126,7 +112,6 @@ const Index = () => {
           style={{
             top: '20%',
             left: '8%',
-            transform: `translateY(${Math.sin(scrollY * 0.008) * 15}px)`,
             animationDelay: '0s',
           }}
         />
@@ -137,7 +122,6 @@ const Index = () => {
           style={{
             top: '40%',
             left: '12%',
-            transform: `translateY(${Math.sin(scrollY * 0.008 + 1) * 20}px)`,
             animationDelay: '1s',
           }}
         />
@@ -148,7 +132,6 @@ const Index = () => {
           style={{
             top: '65%',
             left: '6%',
-            transform: `translateY(${Math.sin(scrollY * 0.008 + 2) * 12}px)`,
             animationDelay: '2s',
           }}
         />
@@ -159,7 +142,6 @@ const Index = () => {
           style={{
             top: '25%',
             right: '8%',
-            transform: `translateY(${Math.sin(scrollY * 0.008 + 3) * 25}px)`,
             animationDelay: '0.5s',
           }}
         />
@@ -170,7 +152,6 @@ const Index = () => {
           style={{
             top: '55%',
             right: '10%',
-            transform: `translateY(${Math.sin(scrollY * 0.008 + 4) * 18}px)`,
             animationDelay: '1.5s',
           }}
         />
@@ -209,17 +190,17 @@ const Index = () => {
               </Button>
             </div>
           </div>
-          
-          {/* Enhanced Scroll Indicator */}
-          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-            <div className="flex flex-col items-center text-stone-600 space-y-3">
-              <div className="relative">
-                <Anchor className="h-10 w-10 animate-rope-swing text-carabiner-600" />
-                <div className="absolute inset-0 bg-carabiner-400/30 rounded-full blur-lg animate-pulse" />
-              </div>
-              <ArrowDown className="h-5 w-5 animate-bounce" />
-              <span className="text-base font-medium">Scroll to climb</span>
+        </div>
+        
+        {/* Moved Scroll Indicator to bottom right corner */}
+        <div className="absolute bottom-8 right-8 animate-bounce z-20">
+          <div className="flex flex-col items-center text-stone-600 space-y-2">
+            <div className="relative">
+              <Anchor className="h-8 w-8 text-carabiner-600" />
+              <div className="absolute inset-0 bg-carabiner-400/30 rounded-full blur-lg animate-pulse" />
             </div>
+            <ArrowDown className="h-4 w-4 animate-bounce" />
+            <span className="text-sm font-medium">Explore</span>
           </div>
         </div>
       </section>
