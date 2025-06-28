@@ -1,5 +1,5 @@
 
-import { X, ExternalLink, Github } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -54,7 +54,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <h3 className="text-lg font-semibold text-stone-800 mb-3">Technologies Used</h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
-                <Badge key={tech} variant="secondary" className="bg-forest-100 text-forest-800 text-xs md:text-sm">
+                <Badge key={tech} variant="secondary" className="bg-stone-100 text-stone-700 text-xs md:text-sm">
                   {tech}
                 </Badge>
               ))}
@@ -102,18 +102,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </p>
             </CardContent>
           </Card>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col gap-3 pt-4">
-            <Button className="w-full bg-forest-600 hover:bg-forest-700 text-sm md:text-base">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              View Live Project
-            </Button>
-            <Button variant="outline" className="w-full border-stone-300 text-sm md:text-base">
-              <Github className="mr-2 h-4 w-4" />
-              View Source Code
-            </Button>
-          </div>
         </div>
       </div>
     </div>

@@ -96,13 +96,13 @@ const Index = () => {
     },
     {
       id: 3,
-      name: "DevFlow Dashboard",
-      description: "Real-time development team productivity analytics and workflow optimization platform.",
-      technologies: ["Vue.js", "D3.js", "Go", "Redis"],
-      image: "📊",
-      fullDescription: "DevFlow Dashboard emerged from observing inefficiencies in our development workflow. Traditional project management tools weren't giving us the insights we needed to improve our processes. I built this platform to aggregate data from GitHub, Jira, and Slack to provide actionable insights about team productivity, code quality trends, and bottlenecks. The real-time visualizations help teams identify issues before they become problems.",
-      challenges: "Data integration from multiple APIs, real-time processing at scale, privacy-conscious analytics",
-      outcome: "Used by 50+ development teams, 25% improvement in sprint completion rates"
+      name: "Betting Bros",
+      description: "Advanced NBA analytics platform using machine learning to predict game outcomes and player performances with real-time data analysis.",
+      technologies: ["React", "TypeScript", "Python", "PostgreSQL", "Docker", "AWS", "Machine Learning"],
+      image: "🏀",
+      fullDescription: "Betting Bros is a comprehensive NBA analytics platform that ingests real-time and historical NBA game data including box scores, advanced metrics, and lineup information. The system performs exploratory and statistical analysis on teams and players, then trains machine-learning models to predict game outcomes and player performances. The platform presents an intuitive dashboard with win-probability charts, confidence intervals, and 'best bets' recommendations. Users can create optional accounts, save favorite teams and players, and receive personalized notifications when model signals cross their custom thresholds.",
+      challenges: "Real-time data integration from NBA APIs, building accurate predictive models, creating an intuitive user experience for complex statistical data, managing full-stack architecture with microservices",
+      outcome: "Successfully deployed full-stack application with React/TypeScript frontend, Node.js API, Python ML microservice, and PostgreSQL database on AWS infrastructure"
     }
   ];
 
@@ -356,11 +356,11 @@ const Index = () => {
       <section className="py-16 md:py-32 bg-gradient-to-b from-stone-100/50 via-stone-50/30 to-stone-100/50 relative z-10" id="projects">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12 md:mb-20 relative">
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 md:-translate-y-6 w-16 md:w-24 h-1 md:h-1.5 bg-gradient-to-r from-forest-500 to-sunset-600 rounded-full" />
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 md:-translate-y-6 w-16 md:w-24 h-1 md:h-1.5 bg-gradient-to-r from-stone-500 to-stone-600 rounded-full" />
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-stone-800 mb-4 md:mb-6 relative leading-tight">
               Peak Projects
-              <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-forest-500/10 to-sunset-600/10 rounded-xl blur-xl md:blur-2xl" />
+              <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-stone-500/10 to-stone-600/10 rounded-xl blur-xl md:blur-2xl" />
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed px-4">
               Challenging builds that pushed my limits and expanded my horizons.
@@ -371,17 +371,17 @@ const Index = () => {
             {projects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 md:hover:-translate-y-6 border-stone-200 animate-fade-in-up bg-gradient-to-br from-white via-stone-50/50 to-white hover:border-sunset-300 relative overflow-hidden"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 md:hover:-translate-y-6 border-stone-200 animate-fade-in-up bg-gradient-to-br from-white via-stone-50/50 to-white hover:border-stone-300 relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 {/* Card glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-sunset-500/5 to-carabiner-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-500/5 to-stone-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <CardHeader className="relative z-10 pb-3 md:pb-4">
                   <div className="text-4xl md:text-5xl mb-4 md:mb-6 transform group-hover:scale-110 transition-transform duration-300">
                     {project.image}
                   </div>
-                  <CardTitle className="text-xl md:text-2xl font-display text-stone-800 group-hover:text-sunset-600 transition-colors duration-300 leading-tight">
+                  <CardTitle className="text-xl md:text-2xl font-display text-stone-800 group-hover:text-stone-600 transition-colors duration-300 leading-tight">
                     {project.name}
                   </CardTitle>
                 </CardHeader>
@@ -409,7 +409,7 @@ const Index = () => {
                     onClick={() => setSelectedProject(project)}
                     variant="outline" 
                     size="lg" 
-                    className="w-full group-hover:bg-gradient-to-r group-hover:from-sunset-50 group-hover:to-carabiner-50 group-hover:border-sunset-300 transition-all duration-300 transform hover:scale-105 py-2 md:py-3"
+                    className="w-full group-hover:bg-gradient-to-r group-hover:from-stone-50 group-hover:to-stone-100 group-hover:border-stone-300 transition-all duration-300 transform hover:scale-105 py-2 md:py-3"
                   >
                     View Details
                     <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
