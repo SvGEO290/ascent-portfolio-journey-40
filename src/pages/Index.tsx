@@ -189,9 +189,9 @@ const Index = () => {
           <div className="absolute -top-6 -right-6 md:-top-12 md:-right-12 w-12 h-12 md:w-24 md:h-24 bg-stone-400 rounded-full opacity-25 animate-pulse" style={{ animationDelay: '2s' }} />
           
           <div className="animate-fade-in-up space-y-8 md:space-y-12">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold text-stone-800 leading-tight relative mb-6 md:mb-8">
-              <span className="block">Scaling New</span>
-              <span className="block text-transparent bg-gradient-to-r from-sunset-500 via-carabiner-600 to-forest-600 bg-clip-text animate-pulse">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold text-stone-800 leading-tight relative mb-8 md:mb-12">
+              <span className="block mb-2 md:mb-4">Scaling New</span>
+              <span className="block text-transparent bg-gradient-to-r from-stone-500 via-stone-600 to-stone-700 bg-clip-text animate-pulse">
                 Heights
               </span>
               {/* Climbing chalk dust effect */}
