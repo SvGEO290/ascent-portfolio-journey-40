@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowDown, ArrowRight, Mountain, Anchor, Users, Code, Briefcase, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { ArrowDown, ArrowRight, Mountain, Anchor, Users, Code, Briefcase, Mail, Phone, MapPin, Linkedin, Github, FileDown } from 'lucide-react';
 import { ProjectModal } from '@/components/ProjectModal';
 
 const Index = () => {
@@ -15,30 +15,52 @@ const Index = () => {
     }
   };
 
+  const scrollToResume = () => {
+    const resumeSection = document.getElementById('resume');
+    if (resumeSection) {
+      resumeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const experiences = [
     {
       id: 1,
-      role: "Senior Software Engineer",
-      company: "TechClimb Solutions",
-      period: "2023 - Present",
-      description: "Leading full-stack development initiatives and mentoring junior developers. Architected scalable microservices that improved system performance by 40%.",
-      skills: ["React", "Node.js", "AWS", "TypeScript"]
+      role: "Project Manager: Startup Support Intern",
+      company: "Launch Greensboro, Chamber of Commerce",
+      location: "Greensboro, NC",
+      period: "February 2025 – Present",
+      description: "Providing end-to-end project support to entrepreneurs, helping move business projects from concept to completion with the goal of reaching $1M in revenue. Leading digital strategy initiatives and facilitating weekly launch-lab sessions for collaborative innovation.",
+      highlights: [
+        "End-to-End Project Support",
+        "Digital Strategy & Web Development", 
+        "Collaborative Innovation"
+      ]
     },
     {
       id: 2,
-      role: "Product Engineering Intern",
-      company: "Summit Innovations",
-      period: "Summer 2022",
-      description: "Collaborated with product teams to build user-centric features. Implemented A/B testing framework that increased user engagement by 25%.",
-      skills: ["Python", "Django", "PostgreSQL", "Docker"]
+      role: "Artificial Intelligence/Computer Vision Intern",
+      company: "Lenovo",
+      location: "Morrisville, NC",
+      period: "June 2024 – August 2024",
+      description: "Integrated Intel's AI solutions into internal software for Lenovo's OEM engineering team, developing and deploying AI-based demos that boosted client engagement. Led full product lifecycle from design to deployment while collaborating with Intel's team on cutting-edge AI technologies.",
+      highlights: [
+        "AI Solutions Integration",
+        "Product Lifecycle Management",
+        "Global Partnership Development"
+      ]
     },
     {
       id: 3,
-      role: "Software Development Intern",
-      company: "BaseCase Technologies",
-      period: "Summer 2021",
-      description: "Developed automated testing suites and contributed to CI/CD pipeline improvements. Reduced deployment time by 50%.",
-      skills: ["Java", "Spring Boot", "Jenkins", "Git"]
+      role: "Supervisor, Instructor, Route Setter",
+      company: "UNCG Outdoor Adventures",
+      location: "Greensboro, NC", 
+      period: "January 2021 – May 2024",
+      description: "Directed daily operations for UNCG's indoor rock climbing gym, managing a team of 20-25 employees and organizing large-scale events with 500+ participants. Chaired high-profile annual events and increased participation by 20% through targeted marketing strategies.",
+      highlights: [
+        "Team Leadership & Operations",
+        "Event Management & Marketing",
+        "Risk Management & Safety"
+      ]
     }
   ];
 
@@ -172,7 +194,7 @@ const Index = () => {
               that reach new summits of innovation and impact.
             </p>
             
-            {/* New Navigation Buttons - Stack on mobile */}
+            {/* Navigation Buttons - Updated to remove old buttons and add Resume */}
             <div className="flex flex-col gap-4 md:flex-row md:gap-6 justify-center items-center mb-12 md:mb-16 px-4">
               <Button 
                 size="lg" 
@@ -184,11 +206,11 @@ const Index = () => {
               </Button>
               <Button 
                 size="lg" 
-                className="w-full sm:w-auto bg-gradient-to-r from-stone-800 to-stone-900 hover:from-stone-900 hover:to-black text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
-                onClick={() => window.open('https://github.com', '_blank')}
+                className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
+                onClick={scrollToResume}
               >
-                <Github className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
-                GitHub
+                <FileDown className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
+                My Resume
               </Button>
               <Button 
                 size="lg" 
@@ -236,12 +258,12 @@ const Index = () => {
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 md:-translate-y-6 w-16 md:w-24 h-1 md:h-1.5 bg-gradient-to-r from-sunset-500 to-carabiner-600 rounded-full" />
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-stone-800 mb-4 md:mb-6 relative leading-tight">
-              The Ascent
+              Professional Experience
               <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-sunset-500/10 to-carabiner-600/10 rounded-xl blur-xl md:blur-2xl" />
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed px-4">
-              Each role has been a stepping stone, building skills and experience 
-              one challenge at a time.
+              A journey through diverse roles that have shaped my professional growth 
+              and expertise across multiple industries.
             </p>
           </div>
 
@@ -260,6 +282,7 @@ const Index = () => {
                         {exp.role}
                       </h3>
                       <p className="text-lg md:text-xl text-sunset-600 font-medium">{exp.company}</p>
+                      <p className="text-base md:text-lg text-stone-500 font-medium">{exp.location}</p>
                       <p className="text-base md:text-lg text-stone-500 font-medium">{exp.period}</p>
                     </div>
                   </div>
@@ -281,13 +304,13 @@ const Index = () => {
                           {exp.description}
                         </p>
                         <div className="flex flex-wrap gap-2 md:gap-3">
-                          {exp.skills.map((skill) => (
+                          {exp.highlights.map((highlight) => (
                             <Badge 
-                              key={skill} 
+                              key={highlight} 
                               variant="secondary" 
                               className="bg-gradient-to-r from-forest-100 to-forest-50 text-forest-800 hover:from-forest-200 hover:to-forest-100 transition-all duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2 text-xs md:text-sm font-medium"
                             >
-                              {skill}
+                              {highlight}
                             </Badge>
                           ))}
                         </div>
@@ -297,6 +320,39 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section className="py-16 md:py-32 relative z-10 bg-gradient-to-b from-stone-50/30 to-transparent" id="resume">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+          <div className="mb-12 md:mb-16 relative">
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 md:-translate-y-6 w-16 md:w-24 h-1 md:h-1.5 bg-gradient-to-r from-green-500 to-blue-600 rounded-full" />
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-stone-800 mb-4 md:mb-6 relative leading-tight">
+              My Resume
+              <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-green-500/10 to-blue-600/10 rounded-xl blur-xl md:blur-2xl" />
+            </h2>
+            <p className="text-lg md:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed px-4 mb-8 md:mb-12">
+              Download my complete professional resume to learn more about my experience, 
+              skills, and accomplishments.
+            </p>
+            
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-8 md:px-10 py-3 md:py-4 text-base md:text-lg"
+              onClick={() => {
+                // This would trigger a download - you'll need to add your actual resume file
+                const link = document.createElement('a');
+                link.href = '/resume.pdf'; // You'll need to add your resume file to the public folder
+                link.download = 'Resume.pdf';
+                link.click();
+              }}
+            >
+              <FileDown className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
+              Download Resume
+            </Button>
           </div>
         </div>
       </section>
@@ -394,7 +450,7 @@ const Index = () => {
                   <div className="absolute inset-0 bg-sunset-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <h3 className="font-semibold text-stone-800 mb-2 md:mb-3 text-lg md:text-xl">Email</h3>
-                <p className="text-stone-600 text-base md:text-lg">hello@developer.climb</p>
+                <p className="text-stone-600 text-base md:text-lg">svgeorge029@gmail.com</p>
               </CardContent>
             </Card>
             
@@ -405,7 +461,7 @@ const Index = () => {
                   <div className="absolute inset-0 bg-forest-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <h3 className="font-semibold text-stone-800 mb-2 md:mb-3 text-lg md:text-xl">Phone</h3>
-                <p className="text-stone-600 text-base md:text-lg">+1 (555) 123-CLIMB</p>
+                <p className="text-stone-600 text-base md:text-lg">(919) 759-1139</p>
               </CardContent>
             </Card>
             
@@ -416,7 +472,7 @@ const Index = () => {
                   <div className="absolute inset-0 bg-carabiner-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <h3 className="font-semibold text-stone-800 mb-2 md:mb-3 text-lg md:text-xl">Location</h3>
-                <p className="text-stone-600 text-base md:text-lg">Mountain View, CA</p>
+                <p className="text-stone-600 text-base md:text-lg">Cary, NC</p>
               </CardContent>
             </Card>
           </div>
