@@ -67,23 +67,23 @@ const Index = () => {
   const projects = [
     {
       id: 1,
-      name: "ClimbTracker Pro",
-      description: "A comprehensive climbing route tracking app with social features and route recommendations.",
-      technologies: ["React Native", "Firebase", "Node.js", "Express"],
-      image: "🧗‍♂️",
-      fullDescription: "ClimbTracker Pro started as a personal project to solve the problem of tracking climbing progress across different crags. The challenge was creating an intuitive interface that worked both online and offline, since many climbing areas have poor cell coverage. I implemented a sophisticated caching system and conflict resolution for when users sync their data later. The app now has over 5,000 active users and has been featured in Climbing Magazine.",
-      challenges: "Offline data synchronization, GPS accuracy in remote areas, performance optimization for older devices",
-      outcome: "5,000+ active users, 4.8-star rating, featured in climbing publications"
+      name: "AI Research Thesis",
+      description: "Comprehensive research on Artificial Intelligence presented at the Spring 2023 Undergraduate Research and Creativity Expo.",
+      technologies: ["Python", "Machine Learning", "Natural Language Processing", "Research"],
+      image: "🧠",
+      fullDescription: "This thesis project focused on bridging the gap between AI and non-technical audiences by exploring AI's logic-based thinking, machine learning capabilities, and natural language processing. The research aimed to foster a comprehensive understanding of AI's functionality and make complex AI concepts accessible to broader audiences. The project was successfully presented at UNCG's Spring 2023 Undergraduate Research and Creativity Expo, demonstrating the practical applications and implications of AI technology.",
+      challenges: "Making complex AI concepts accessible to non-technical audiences, comprehensive literature review, presenting technical research in an engaging format",
+      outcome: "Successfully presented at UNCG Research Expo, contributed to AI accessibility understanding"
     },
     {
       id: 2,
-      name: "EcoRoute Optimizer",
-      description: "Machine learning algorithm to optimize delivery routes for reduced carbon footprint.",
-      technologies: ["Python", "TensorFlow", "FastAPI", "PostgreSQL"],
+      name: "Campus Engagement Projects",
+      description: "Led multiple high-impact projects including UNCG Residential College Program and campus sustainability initiatives.",
+      technologies: ["Project Management", "Community Engagement", "Event Planning", "Leadership"],
       image: "🌱",
-      fullDescription: "EcoRoute Optimizer was born from a hackathon where we wanted to tackle climate change through technology. The biggest challenge was balancing multiple optimization criteria: delivery time, fuel consumption, traffic patterns, and vehicle capacity. I developed a custom neural network that learns from historical delivery data to predict optimal routes. The algorithm considers real-time traffic, weather conditions, and vehicle specifications.",
-      challenges: "Multi-objective optimization, real-time data integration, scalability for large fleets",
-      outcome: "30% reduction in fuel consumption, implemented by 3 logistics companies"
+      fullDescription: "This encompasses two major campus engagement projects. First, I was selected for the UNCG Residential College Program, a prestigious two-year honors program where I successfully boosted campus engagement by chairing both Gardening and Health & Wellness Committees. Second, I spearheaded the revitalization of UNCG's campus garden, enabling students to plant, harvest, and donate food to support sustainability. This project reintroduced a campus-wide recreational sports and wellness event after years of inactivity, engaging hundreds of students and promoting environmental consciousness.",
+      challenges: "Revitalizing dormant campus programs, coordinating multiple stakeholders, sustainable project implementation",
+      outcome: "Enhanced campus community engagement, successful program reactivation, hundreds of students engaged"
     },
     {
       id: 3,
@@ -271,53 +271,41 @@ const Index = () => {
             {experiences.map((exp, index) => (
               <div 
                 key={exp.id}
-                className={`flex flex-col gap-6 md:gap-12 items-start animate-fade-in-up group`}
+                className={`animate-fade-in-up group`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                {/* Mobile: Header above content, Desktop: Side by side */}
-                <div className="w-full md:flex md:items-start md:gap-12">
-                  <div className="md:w-1/3 mb-6 md:mb-0">
-                    <div className="text-left md:text-right md:pr-12 space-y-1 md:space-y-2">
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-semibold text-stone-800 group-hover:text-sunset-600 transition-colors duration-300 leading-tight">
-                        {exp.role}
-                      </h3>
-                      <p className="text-lg md:text-xl text-sunset-600 font-medium">{exp.company}</p>
-                      <p className="text-base md:text-lg text-stone-500 font-medium">{exp.location}</p>
-                      <p className="text-base md:text-lg text-stone-500 font-medium">{exp.period}</p>
+                <Card className="border-stone-200 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 md:hover:-translate-y-3 group-hover:border-sunset-300 bg-gradient-to-br from-white to-stone-50/50">
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                      <div className="flex-1">
+                        <CardTitle className="text-xl md:text-2xl font-display font-semibold text-stone-800 group-hover:text-sunset-600 transition-colors duration-300 leading-tight mb-2">
+                          {exp.role}
+                        </CardTitle>
+                        <p className="text-lg md:text-xl text-sunset-600 font-medium">{exp.company}</p>
+                      </div>
+                      <div className="text-left md:text-right">
+                        <p className="text-base md:text-lg text-stone-500 font-medium">{exp.location}</p>
+                        <p className="text-base md:text-lg text-stone-500 font-medium">{exp.period}</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Timeline marker - Hidden on mobile */}
-                  <div className="relative hidden md:block">
-                    <div className="w-5 h-5 bg-gradient-to-br from-carabiner-500 to-carabiner-600 rounded-full border-4 border-white shadow-xl group-hover:scale-125 transition-transform duration-300">
-                      <div className="absolute inset-0 bg-carabiner-400 rounded-full animate-ping opacity-20" />
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-stone-700 mb-4 md:mb-6 leading-relaxed text-base md:text-lg">
+                      {exp.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 md:gap-3">
+                      {exp.highlights.map((highlight) => (
+                        <Badge 
+                          key={highlight} 
+                          variant="secondary" 
+                          className="bg-gradient-to-r from-forest-100 to-forest-50 text-forest-800 hover:from-forest-200 hover:to-forest-100 transition-all duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2 text-xs md:text-sm font-medium"
+                        >
+                          {highlight}
+                        </Badge>
+                      ))}
                     </div>
-                    {index < experiences.length - 1 && (
-                      <div className="absolute top-5 left-2.5 w-0.5 h-24 bg-gradient-to-b from-stone-300 to-stone-400" />
-                    )}
-                  </div>
-
-                  <div className="md:w-2/3">
-                    <Card className="border-stone-200 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 md:hover:-translate-y-3 group-hover:border-sunset-300 bg-gradient-to-br from-white to-stone-50/50">
-                      <CardContent className="p-4 md:p-8">
-                        <p className="text-stone-700 mb-4 md:mb-6 leading-relaxed text-base md:text-lg">
-                          {exp.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2 md:gap-3">
-                          {exp.highlights.map((highlight) => (
-                            <Badge 
-                              key={highlight} 
-                              variant="secondary" 
-                              className="bg-gradient-to-r from-forest-100 to-forest-50 text-forest-800 hover:from-forest-200 hover:to-forest-100 transition-all duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2 text-xs md:text-sm font-medium"
-                            >
-                              {highlight}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               </div>
             ))}
           </div>
@@ -335,24 +323,21 @@ const Index = () => {
               <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-green-500/10 to-blue-600/10 rounded-xl blur-xl md:blur-2xl" />
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-stone-600 max-w-3xl mx-auto leading-relaxed px-4 mb-8 md:mb-12">
-              Download my complete professional resume to learn more about my experience, 
+              View my complete professional resume with detailed experience, 
               skills, and accomplishments.
             </p>
             
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-8 md:px-10 py-3 md:py-4 text-base md:text-lg"
-              onClick={() => {
-                // This would trigger a download - you'll need to add your actual resume file
-                const link = document.createElement('a');
-                link.href = '/resume.pdf'; // You'll need to add your resume file to the public folder
-                link.download = 'Resume.pdf';
-                link.click();
-              }}
-            >
-              <FileDown className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
-              Download Resume
-            </Button>
+            <div className="max-w-2xl mx-auto">
+              <Card className="border-stone-200 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-stone-50/50 overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src="/lovable-uploads/ebab72ac-6cb5-4be7-a121-1886bbbede32.png" 
+                    alt="Samuel George Resume"
+                    className="w-full h-auto object-contain"
+                  />
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
