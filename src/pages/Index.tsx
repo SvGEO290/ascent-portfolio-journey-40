@@ -22,6 +22,13 @@ const Index = () => {
     }
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const experiences = [
     {
       id: 1,
@@ -33,7 +40,8 @@ const Index = () => {
       highlights: [
         "End-to-End Project Support",
         "Digital Strategy & Web Development", 
-        "Collaborative Innovation"
+        "Collaborative Innovation",
+        "Project Management"
       ]
     },
     {
@@ -59,7 +67,8 @@ const Index = () => {
       highlights: [
         "Team Leadership & Operations",
         "Event Management & Marketing",
-        "Risk Management & Safety"
+        "Risk Management & Safety",
+        "Project Management"
       ]
     }
   ];
@@ -199,7 +208,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
-                onClick={() => window.open('https://linkedin.com', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/svgeo290/', '_blank')}
               >
                 <Linkedin className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
                 LinkedIn
@@ -223,13 +232,14 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Original Action Buttons - Stack on mobile */}
-            <div className="flex flex-col gap-4 md:flex-row md:gap-6 justify-center items-center pt-6 md:pt-8 px-4">
-              <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-forest-600 to-forest-700 hover:from-forest-700 hover:to-forest-800 text-white shadow-xl transform hover:scale-105 transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg">
-                <Briefcase className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
-                View My Work
-              </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-stone-300 text-stone-700 hover:bg-stone-100 shadow-xl transform hover:scale-105 transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg">
+            {/* Updated Action Button - Only Get In Touch now */}
+            <div className="flex justify-center items-center pt-6 md:pt-8 px-4">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="w-full sm:w-auto border-stone-300 text-stone-700 hover:bg-stone-100 shadow-xl transform hover:scale-105 transition-all duration-300 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
+                onClick={scrollToContact}
+              >
                 <Mail className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
                 Get In Touch
               </Button>
